@@ -16,6 +16,25 @@ Array.prototype.contains = function (prop,val)
 } 
 
 
+Array.prototype.remove = function(prop,val) 
+{
+	
+	if (this.length > 0 ) 
+	{
+		for (i in this) 
+		{
+			if (this[i][prop] === val)
+			{
+				this.splice(this[i], 1);
+				return;
+			}
+		}
+	}
+
+}
+
+
+
 
 function ADDMEDICATION()
 {
