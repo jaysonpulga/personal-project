@@ -1,0 +1,68 @@
+Array.prototype.contains = function (prop,val) 
+{ 
+
+	if (this.length > 0 ) 
+	{
+		for (i in this) 
+		{
+			if (this[i][prop] === val)
+			{
+			return true;
+			}
+		}
+	}
+  return false;
+	
+} 
+
+
+
+function ADDMEDICATION()
+{
+
+	
+	var medicationname = $("#medication_autocomplete").val();
+	var medicationid = $("#medication_id").val();
+	
+	
+	var denominationid = $("#denomination").val();
+	var denominationName = $("#denomination option[value="+denominationid+"]").text();
+	
+	var indicationid = $("#indication").val();
+	var indicationName = $("#indication option[value="+indicationid+"]").text();
+	
+	var adminstrationid = $("#administration").val();
+	var adminstrationName = $("#administration option[value="+adminstrationid+"]").text();
+	
+	var precautionid = $("#precaution").val();
+	var precautionidName = $("#precaution option[value="+precautionid+"]").text();
+	
+	var frequency = $("#frequency").val();
+	
+
+	var Data = {
+		"medicationname" 	: medicationname,
+		"medicationid"   	: medicationid,
+		"denominationid" 	: denominationid,
+		"denominationName"  : denominationName,
+		"indicationid"		: indicationid,
+		"indicationName"	: indicationName,
+		"adminstrationid"	: adminstrationid,
+		"adminstrationName" : adminstrationName,
+		"precautionid"		: precautionid,
+		"precautionidName"	: precautionidName,
+		"frequency"			: frequency
+	}
+
+
+
+		
+		
+	if(label_list.contains('medicationid',Data.medicationid))
+	{}
+	else{label_list.push(Data);}
+		
+		
+	
+	alert(JSON.stringify(label_list));
+}
